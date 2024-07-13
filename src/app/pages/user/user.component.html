@@ -1,0 +1,34 @@
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="suppliersData"
+  [remoteOperations]="true"
+  [showBorders]="true"
+>
+<dxo-filter-row [visible]="true"></dxo-filter-row>
+<dxo-header-filter [visible]="true"></dxo-header-filter>
+<dxo-group-panel [visible]="true"></dxo-group-panel>
+<dxo-scrolling mode="virtual"></dxo-scrolling>
+<dxo-editing
+  mode="row"
+  [allowAdding]="true"
+  [allowUpdating]="true"
+  [allowDeleting]="true"
+></dxo-editing>
+  <dxo-paging [pageSize]="15"></dxo-paging>
+  <dxi-column dataField="ContactName"></dxi-column>
+  <dxi-column dataField="ContactTitle"></dxi-column>
+  <dxi-column dataField="CompanyName"></dxi-column>
+  <dxi-column dataField="City"></dxi-column>
+  <dxi-column dataField="Country"></dxi-column>
+  <dxo-master-detail
+    [enabled]="true"
+    template="masterDetail"
+  ></dxo-master-detail>
+
+  <div *dxTemplate="let masterDetailItem of 'masterDetail'">
+    <app-detail-view
+      [key]="masterDetailItem.key"
+      [rowData]="masterDetailItem.data"
+    ></app-detail-view>
+  </div>
+</dx-data-grid>
