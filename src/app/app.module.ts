@@ -4,12 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SideNavOuterToolbarModule, SideNavInnerToolbarModule, SingleCardModule } from './layouts';
 import { FooterModule, ResetPasswordFormModule, CreateAccountFormModule, ChangePasswordFormModule, LoginFormModule } from './shared/components';
-import { AuthService, ScreenService, AppInfoService } from './shared/services';
+import { AuthService, ScreenService, AppInfoService} from './shared/services';
 import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
 import { UserComponent } from './pages/user/user.component';
 import { DetailViewComponent } from './pages/detail-view/detail-view.component';
-import { DxTabsModule,DxDataGridModule,DxSelectBoxModule ,DxFormModule ,DxTabPanelModule  } from 'devextreme-angular';
+import { DxTabsModule,DxDataGridModule,DxSelectBoxModule ,DxFormModule ,DxTabPanelModule,DxCheckBoxModule   } from 'devextreme-angular';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import dxTabPanel from 'devextreme/ui/tab_panel';
 
@@ -36,7 +36,8 @@ import dxTabPanel from 'devextreme/ui/tab_panel';
     DxDataGridModule,
     DxSelectBoxModule ,
     DxFormModule ,
-    DxTabPanelModule 
+    DxTabPanelModule ,
+    DxCheckBoxModule
   ],
   providers: [
     AuthService,

@@ -1,13 +1,19 @@
 <dx-data-grid
   id="gridContainer"
   [dataSource]="suppliersData"
-  [remoteOperations]="true"
+  [remoteOperations]="false"
   [showBorders]="true"
 >
 <dxo-filter-row [visible]="true"></dxo-filter-row>
 <dxo-header-filter [visible]="true"></dxo-header-filter>
 <dxo-group-panel [visible]="true"></dxo-group-panel>
 <dxo-scrolling mode="virtual"></dxo-scrolling>
+<dxo-pager
+    [visible]="true"
+    [allowedPageSizes]="allowedPageSizes"
+    [showPageSizeSelector]="true"
+    [displayMode]="displayMode"
+    ></dxo-pager>
 <dxo-editing
   mode="row"
   [allowAdding]="true"
@@ -15,11 +21,11 @@
   [allowDeleting]="true"
 ></dxo-editing>
   <dxo-paging [pageSize]="15"></dxo-paging>
-  <dxi-column dataField="ContactName"></dxi-column>
-  <dxi-column dataField="ContactTitle"></dxi-column>
-  <dxi-column dataField="CompanyName"></dxi-column>
-  <dxi-column dataField="City"></dxi-column>
-  <dxi-column dataField="Country"></dxi-column>
+  <dxi-column dataField="id"></dxi-column>
+  <dxi-column dataField="userName"></dxi-column>
+  <dxi-column dataField="email"></dxi-column>
+  <dxi-column dataField="phoneNumber"></dxi-column>
+  
   <dxo-master-detail
     [enabled]="true"
     template="masterDetail"
@@ -28,7 +34,8 @@
   <div *dxTemplate="let masterDetailItem of 'masterDetail'">
     <app-detail-view
       [key]="masterDetailItem.key"
-      [rowData]="masterDetailItem.data"
+      [rowData]="masterDetailItem.data.users"
     ></app-detail-view>
   </div>
+ 
 </dx-data-grid>
